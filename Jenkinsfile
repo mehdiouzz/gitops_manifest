@@ -18,6 +18,7 @@ node {
                         sh "cat deployment.yaml"
                         sh "cp deployment.yaml deployment${DOCKERTAG}.yaml"
                         sh "sed -i 's+mehdiouzz/test.*+mehdiouzz/test:${DOCKERTAG}+g' deployment${DOCKERTAG}.yaml"
+                        sh "sed -i 's+name: flaskdemo.*+name: flaskdemo${DOCKERTAG}+g' deployment${DOCKERTAG}.yaml"
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
