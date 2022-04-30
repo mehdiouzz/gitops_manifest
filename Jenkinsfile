@@ -16,7 +16,7 @@ node {
                         sh "git config user.name mehdiouzz"
                         //sh "git switch master"
                         sh "cat deployment.yaml"
-                        sh "cp deployment.yaml deployment${DOCKERTAG}.yml"
+                        sh "cp deployment.yaml deployment${DOCKERTAG}.yaml"
                         sh "sed -i 's+mehdiouzz/test.*+mehdiouzz/test:${DOCKERTAG}+g' deployment${DOCKERTAG}.yaml"
                         sh "cat deployment.yaml"
                         sh "git add ."
